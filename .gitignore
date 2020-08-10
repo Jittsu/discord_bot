@@ -1,2 +1,6 @@
 log.txt
 token.txt
+.vscode/
+__pycache__/
+mykbd.xkm
+nohup.out
