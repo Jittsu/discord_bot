@@ -13,8 +13,10 @@ import pickle
 from Levenshtein import levenshtein
 ls = levenshtein()
 
+import random
+
 # change your access token ---
-TOKEN = 'TOKEN'
+TOKEN = os.environ['DISCORD_BOT_TOKEN']
 
 #client = discord.Client()
 
@@ -160,6 +162,21 @@ async def splasmr(ctx):
                     + first[3].text + '： ' + first[4].text + '・' + first[5].text + '・' + first[6].text \
                     + '・' + first[7].text
 
+        await ctx.send(msg)
+
+    except:
+        msg = 'InternalServerError: Sorry, the program of kusaba_bot may have problems.\n' \
+            + 'Please contact to administrator of this server.\n' \
+            + 'Function named splasmr has problems.'
+
+        await ctx.send(msg)
+
+@bot.command()
+async def cmndbd(ctx):
+    try:
+        msg_list = ['dbdやろう', 'dbdはよ', 'dbdしかかたん', 'dbd今すぐ', 'dbd起動はよ', 'dbd招待してますけど', 'dbdせんと死ぬよ？']
+        select_num = random.randint(0, len(msg_list)-1)
+        msg = msg_list[select_num]
         await ctx.send(msg)
 
     except:
